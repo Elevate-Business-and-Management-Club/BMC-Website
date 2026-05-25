@@ -1,41 +1,27 @@
 # Business and Management Club Website
+  
 
-The Official Website of Business and Management Club
+A premium cinematic website for the Business and Management Club of IIITDM Jabalpur.
 
 ---
 
 ## About The Project
 
-This repository contains the source code for the official BMC website.
+This is the official website of the Business and Management Club.
 
-The project is being developed collaboratively by club members to create user-friendly platform for managing club activities and showcasing events.
-
----
-
-## License
-
-This project is licensed under the MIT License.
-
-# BMC — Business and Management Club
-
-### IIITDM Jabalpur
-
-A premium cinematic website built for the **Business and Management Club (BMC)** of **IIITDM Jabalpur**.
-
-The website is designed with a modern futuristic aesthetic inspired by premium Awwwards websites, startup landing pages, and cinematic motion design.
+This is designed with a modern, futuristic and cinematic aesthetic to showcase club activities, events and achievements.
 
 ---
+
 
 # Features
 
-- Premium cinematic UI
+- Premium cinematic UI with smooth animation
 - Glassmorphism navigation bar
 - Fullscreen hero section with background video
 - Dynamic image galleries
 - Upcoming Events section
-- Smooth animations and reveal effects
 - Responsive modern design
-- Auto-loading gallery system
 - Vite-powered frontend architecture
 
 ---
@@ -48,84 +34,24 @@ src/
 ├── assets/
 │   ├── photos/
 │   ├── upcomingevents/
-│   ├── video.mp4
-│   ├── video2.mp4
-│   ├── video3.mp4
-│   └── logo.png
-│
+│   
 ├── js/
-│   ├── main.js
-│   ├── gallery.js
-│   ├── events.js
-│   ├── cursor.js
-│   ├── scroll.js
-│   └── reveal.js
 │
 ├── styles/
-│   ├── navbar.css
-│   ├── hero.css
-│   ├── gallery.css
-│   ├── about.css
-│   ├── work.css
-│   └── ...
-│
+│   
 └── index.html
 ```
 
 ---
 
-# Installation & Setup
-
-## 1. Clone the repository
-
-```bash
-git clone <repository-url>
-```
-
----
-
-## 2. Install dependencies
-
-```bash
-npm install
-```
-
----
-
-## 3. Start development server
-
-```bash
-npm run dev
-```
-
----
-
-## 4. Build for production
-
-```bash
-npm run build
-```
-
----
 
 # Uploading Gallery Photos
 
-To add photos to the **Gallery Section**:
+To add new photos in the **Gallery Section**:
+- Go to folder: 'src/assets//photos/'
+- Upload your images ('.jpg', '.jpeg', '.png', '.webp')
+- The gallery will automatically update.
 
-Push the photos inside:
-
-```bash
-src/assets/photos
-```
-
-Supported formats:
-
-- `.jpg`
-- `.jpeg`
-- `.png`
-- `.webp`
-
-The gallery automatically loads all images dynamically.
 
 No HTML editing is required.
 
@@ -133,22 +59,11 @@ No HTML editing is required.
 
 # Uploading Upcoming Events
 
-To add images/posters for the **Upcoming Events Section**:
+To add  new images/posters for the **Upcoming Events Section**:
 
-Push the event images inside:
-
-```bash
-src/assets/upcomingevents
-```
-
-Supported formats:
-
-- `.jpg`
-- `.jpeg`
-- `.png`
-- `.webp`
-
-The events section automatically updates dynamically.
+- Go to folder: 'src/assets/upcomingevents/'
+- Upload event images/posters
+- The event section will automatically update.
 
 No manual editing required.
 
@@ -162,16 +77,6 @@ The website is optimized for:
 - Tablets
 - Mobile devices
 
----
-
-# Dynamic Systems
-
-The project includes:
-
-- Auto-loading gallery system
-- Dynamic event image rendering
-- Modular JavaScript architecture
-- Reusable animation system
 
 ---
 
