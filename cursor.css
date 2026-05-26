@@ -1,0 +1,36 @@
+/**
+ * BMC - Custom Coordinate Mapping Tracking Pointer Styles
+ */
+
+#cursor {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+#cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(200, 255, 87, 0.4);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.08s linear;
+}
+
+/* Deactivate interactive pointer logic on Touch/Mobile Screens to avoid UI lags */
+@media (pointer: coarse) {
+  #cursor, #cursor-ring {
+    display: none !important;
+  }
+}

@@ -1,0 +1,186 @@
+/**
+ * BMC - GLOBAL STYLESHEET
+ * Reset layouts, system design tokens, variables, and common global modifiers
+ */
+
+:root {
+  --bg: #090B14;
+  --bg2: #0F1220;
+  --bg3: #161926;
+  --accent: #C8FF57;
+  --accent2: #7B61FF;
+  --text: #F0EEE6;
+  --muted: #7A7E8F;
+  --border: rgba(240, 238, 230, 0.1);
+
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --display: 'Bebas Neue', sans-serif;
+
+  --section-padding: 120px;
+  --container-padding: 48px;
+
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+section {
+  padding: var(--section-padding) var(--container-padding);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  margin-bottom: 48px;
+  letter-spacing: -0.01em;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Base Actions Components */
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background: #dbff85;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200, 255, 87, 0.2);
+}
+
+.btn-ghost {
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--text);
+}
+
+.btn-dark {
+  background: var(--bg);
+  color: var(--accent);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 18px 40px;
+  border: 1px solid rgba(200, 255, 87, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-dark:hover {
+  background: #131729;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Micro Animations Setup */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(102%); }
+  to { transform: translateY(0); }
+}
+
+/* Global Breakpoint Scale Adaptations */
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 90px;
+    --container-padding: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 70px;
+    --container-padding: 20px;
+  }
+}

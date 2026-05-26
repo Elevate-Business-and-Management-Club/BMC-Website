@@ -1,0 +1,80 @@
+/**
+ * BMC - Introduction Portfolio Styles
+ */
+
+.intro {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.intro__text p {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.intro__text p em {
+  color: var(--text);
+  font-style: normal;
+}
+
+.intro__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.stat {
+  background: var(--bg2);
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.stat__number {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.stat__label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.intro__video {
+  width: 100%;
+  height: 580px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 32px 64px rgba(0,0,0,0.4);
+}
+
+/* Layout Compactor */
+@media (max-width: 991px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .intro__video {
+    height: 400px;
+    order: -1; /* Elevate media logic on vertical stack flows */
+  }
+}
+
+@media (max-width: 576px) {
+  .intro__stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

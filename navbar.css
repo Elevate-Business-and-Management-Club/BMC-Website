@@ -1,0 +1,192 @@
+/* ========================================
+   BMC Premium White Glass Glassmorphism Navbar Layer
+   ======================================== */
+
+.navbar {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: calc(100% - (var(--container-padding) * 2));
+  max-width: 1400px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s var(--transition-smooth);
+}
+
+.navbar.scrolled {
+  background: rgba(9, 11, 20, 0.85);
+  padding: 10px 28px;
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  top: 12px;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.navbar__logo-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 255, 87, 0.3);
+}
+
+.navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-main {
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 1.8rem;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+}
+
+.logo-sub {
+  color: var(--muted);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.navbar__link {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  position: relative;
+  padding: 6px 0;
+  transition: opacity var(--transition-fast);
+}
+
+.navbar__link:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width var(--transition-fast);
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+}
+
+.navbar__toggle, .navbar__modal-close {
+  display: none;
+}
+
+/* Tablet & Mobile System Optimization */
+@media (max-width: 991px) {
+  .navbar {
+    padding: 12px 24px;
+    border-radius: 40px;
+  }
+  
+  .navbar__links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100vh;
+    background: var(--bg2);
+    border-left: 1px solid var(--border);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 40px;
+    gap: 32px;
+    transition: right 0.4s var(--transition-smooth);
+    box-shadow: -20px 0 60px rgba(0,0,0,0.6);
+  }
+
+  .navbar__links.active {
+    right: 0;
+  }
+
+  .navbar__link {
+    font-size: 1.1rem;
+  }
+
+  .navbar__toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .navbar__toggle .bar {
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    transition: all var(--transition-fast);
+  }
+
+  .navbar__modal-close {
+    display: block;
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .navbar__modal-close .bar {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+  }
+  .navbar__modal-close .bar:nth-child(1) { transform: rotate(45deg); }
+  .navbar__modal-close .bar:nth-child(2) { transform: rotate(-45deg); }
+}
+
+@media (max-width: 480px) {
+  .navbar__links {
+    width: 100%;
+  }
+  .logo-sub {
+    display: none;
+  }
+}

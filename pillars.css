@@ -1,0 +1,91 @@
+/**
+ * BMC - Strategic Pillars Component Rules
+ */
+
+.pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pillar {
+  background: var(--bg2);
+  padding: 48px 36px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-medium);
+}
+
+.pillar:hover {
+  background: var(--bg3);
+  border-color: rgba(200, 255, 87, 0.2);
+  transform: translateY(-4px);
+}
+
+.pillar__number {
+  font-family: var(--display);
+  font-size: 6.5rem;
+  line-height: 0.8;
+  color: rgba(240, 238, 230, 0.02);
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  pointer-events: none;
+  transition: color var(--transition-medium);
+}
+
+.pillar:hover .pillar__number {
+  color: rgba(200, 255, 87, 0.04);
+}
+
+.pillar__icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.pillar h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.pillar p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.pillar__caveat {
+  margin-top: 32px;
+  padding-left: 12px;
+  border-left: 1px solid var(--accent);
+  font-size: 0.8rem;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+/* Viewport Adjusters */
+@media (max-width: 991px) {
+  .pillars__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pillars__grid {
+    grid-template-columns: 1fr;
+  }
+}

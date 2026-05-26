@@ -1,0 +1,32 @@
+/**
+ * BMC - High Contrast Action Banner Sheet
+ */
+
+.cta-banner {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 80px var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cta-banner h2 {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 5.5vw, 5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  max-width: 800px;
+}
+
+/* Responsive Grid Stacker Conversion */
+@media (max-width: 991px) {
+  .cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+}

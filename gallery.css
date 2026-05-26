@@ -1,0 +1,62 @@
+/**
+ * BMC - Fluid Event Track Gallery
+ */
+
+.gallery {
+  padding: var(--section-padding) 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.gallery__header {
+  padding: 0 var(--container-padding);
+}
+
+.gallery__track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 0 var(--container-padding) 24px;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Subdue default scrollbar architecture natively */
+}
+
+.gallery__track::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery__item {
+  min-width: 360px;
+  width: 360px;
+  height: 480px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: transform 0.5s var(--transition-smooth), border-color var(--transition-fast);
+}
+
+.gallery__item:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.05);
+}
+
+/* Mobile Track Scaling rules */
+@media (max-width: 576px) {
+  .gallery__item {
+    min-width: 280px;
+    width: 280px;
+    height: 380px;
+  }
+}
