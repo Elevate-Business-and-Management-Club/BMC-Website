@@ -5,7 +5,7 @@
 
 export class ScrollController {
   constructor() {
-    this.navbar = document.getElementById('nav');
+    this.navbar = document.querySelector('.navbar');
     this.scrollThreshold = 80;
     this.lastScrollY = 0;
 
