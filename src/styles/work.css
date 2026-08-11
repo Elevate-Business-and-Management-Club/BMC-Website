@@ -88,14 +88,9 @@
   align-items: center;
   gap: 40px;
   padding: 36px 40px;
-  .work-item {
   background: rgba(255,255,255,0.03);
-
   backdrop-filter: blur(14px);
-
   border: 1px solid rgba(255,255,255,0.06);
-}
-  border: 1px solid var(--border);
   cursor: none;
   transition: background var(--transition-medium),
               border-color var(--transition-medium);
@@ -213,5 +208,26 @@
 
   .work__arrow {
     margin-left: 12px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .work-item {
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .work__number {
+    font-size: 32px;
+  }
+
+  .work__info h3 {
+    font-size: 22px;
+  }
+
+  .work__header {
+    margin-bottom: 40px;
   }
 }
