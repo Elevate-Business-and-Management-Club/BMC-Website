@@ -1,0 +1,142 @@
+.achievements-section {
+    padding: 8rem 6vw;
+    background: #090b14;
+    color: #f4f1ea;
+    scroll-margin-top: 90px;
+}
+
+.achievements-section__heading {
+    max-width: 720px;
+    margin-bottom: 4rem;
+}
+
+.section-eyebrow {
+    margin: 0 0 1rem;
+    color: #c9ff3f;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+.achievements-section h2 {
+    margin: 0;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+}
+
+.achievements-section h2 em {
+    color: #c9ff3f;
+}
+
+.achievements-section__heading > p:last-child {
+    max-width: 520px;
+    margin: 1.5rem 0 0;
+    color: #b9bbc5;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.achievement-card {
+    position: relative;
+    min-height: 350px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: #151822;
+    isolation: isolate;
+}
+
+.achievement-card--featured {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 720px;
+}
+
+.achievement-card img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: transform 0.6s ease, filter 0.6s ease;
+    z-index: -2;
+}
+
+.achievement-card::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(9, 11, 20, 0.08) 20%,
+        rgba(9, 11, 20, 0.9) 100%
+    );
+    z-index: -1;
+}
+
+.achievement-card__content {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    left: 1.5rem;
+}
+
+.achievement-card__content span {
+    display: block;
+    margin-bottom: 0.7rem;
+    color: #c9ff3f;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+.achievement-card h3 {
+    margin: 0;
+    font-family: "Clash Display", "DM Sans", sans-serif;
+    font-size: clamp(1.25rem, 2vw, 1.8rem);
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+.achievement-card p {
+    margin: 0.55rem 0 0;
+    color: #d0d1d6;
+    font-size: 0.85rem;
+}
+
+.achievement-card:hover img {
+    transform: scale(1.08);
+    filter: grayscale(0%);
+}
+
+@media (max-width: 900px) {
+    .achievements-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .achievements-section {
+        padding: 5rem 1.25rem;
+    }
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievement-card,
+    .achievement-card--featured {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 380px;
+    }
+}

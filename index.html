@@ -22,21 +22,20 @@
     <link rel="stylesheet" href="src/styles/cursor.css" />
     <link rel="stylesheet" href="src/styles/navbar.css" />
     <link rel="stylesheet" href="src/styles/hero.css" />
-    <link rel="stylesheet" href="src/styles/marquee.css" />
     <link rel="stylesheet" href="src/styles/about.css" />
-    <link rel="stylesheet" href="src/styles/work.css" />
     <link rel="stylesheet" href="src/styles/pillars.css" />
     <link rel="stylesheet" href="src/styles/services.css" />
     <link rel="stylesheet" href="src/styles/cta.css" />
     <link rel="stylesheet" href="src/styles/footer.css" />
     <link rel="stylesheet" href="src/styles/gallery.css" />
+    <link rel="stylesheet" href="src/styles/achievements.css" />
 </head>
 
 <body>
     <div id="cursor" aria-hidden="true"></div>
     <div id="cursor-ring" aria-hidden="true"></div>
 
-    <nav class="navbar">
+    <nav class="navbar" id="nav">
       <div class="navbar__logo">
         <img src="./src/assets/logo.png" alt="BMC Logo" class="navbar__logo-image">
         <div class="navbar__logo-text">
@@ -59,7 +58,6 @@
         
         <li><a href="#mission" class="navbar__link">Mission</a></li>
         <li><a href="#achievements" class="navbar__link">Achievements</a></li>
-        <li><a href="#insights" class="navbar__link">Insights</a></li>
         <li><a href="#about" class="navbar__link">About</a></li>
         <li><a href="#contact" class="navbar__link">Contact</a></li>
       </ul>
@@ -92,45 +90,65 @@
         </div>
     </section>
 
-    <div class="marquee-section">
-        <p class="marquee-label" id="achievements">Our Achievements</p>
-        <div class="marquee-container">
-            <div class="marquee-track" id="marquee">
-                <span class="marquee-item">1st Position at Cognizance 2025, IIT Roorkee</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">1st Prize at Techkriti Beat the Market 2024</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">2nd Position at ProdG Business Hackathon 2025, IIT Roorkee</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">2nd and 4th Prizes at Techkriti Beat the Market 2023</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">1st Prize at Crypto Movement 1.0 organized by IIM Trichy</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">3rd Position at Tech Per Trading event by MNIT Jaipur</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">1st Position at Analytica 4.0</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">1st Position at IIT Roorkee ML Competition Winners</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">1st Position at Cognizance 2025, IIT Roorkee</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">1st Prize at Techkriti Beat the Market 2024</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">2nd Position at ProdG Business Hackathon 2025, IIT Roorkee</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">2nd and 4th Prizes at Techkriti Beat the Market 2023</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">1st Prize at Crypto Movement 1.0 organized by IIM Trichy</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">3rd Position at Tech Per Trading event by MNIT Jaipur</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">1st Position at Analytica 4.0</span>
-                <span class="marquee-dot">·</span>
-                <span class="marquee-item">1st Position at IIT Roorkee ML Competition Winners</span>
-                <span class="marquee-dot">·</span>
-            </div>
+        <section class="achievements-section" id="achievements" aria-labelledby="achievements-title">
+        <div class="achievements-section__heading">
+            <p class="section-eyebrow">BMC ACHIEVEMENTS</p>
+            <h2 id="achievements-title">Built to <em>compete.</em></h2>
+            <p>
+                A glimpse of the competitions, challenges, and milestones achieved by
+                the BMC community.
+            </p>
         </div>
-    </div>
+
+        <div class="achievements-grid">
+            <article class="achievement-card achievement-card--featured">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB65kDd_Q9474AuCld7bzyu-ymeSzkKhOqsJ8vSgVvYN0vVKqTG1qGiumH&s=10"
+                    alt="BMC team at Cognizance 2025, IIT Roorkee" />
+                <div class="achievement-card__content">
+                    <span>2025</span>
+                    <h3>1st Position at Cognizance 2025</h3>
+                    <p>IIT Roorkee</p>
+                </div>
+            </article>
+
+            <article class="achievement-card">
+                <img src="https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/679b4a51163f5_beat-the-market.webp"
+                    alt="BMC team at Techkriti Beat the Market 2024" />
+                <div class="achievement-card__content">
+                    <span>2024</span>
+                    <h3>1st Prize at Techkriti Beat the Market 2024</h3>
+                </div>
+            </article>
+
+            <article class="achievement-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY1X9Fsl5iCWs4Uvodd-_YvkZCfIrrFc3Sv15rB9Qa_w&s=10"
+                    alt="BMC team at Crypto Movement 1.0" />
+                <div class="achievement-card__content">
+                    <span></span>
+                    <h3>1st Prize at Crypto Movement 1.0</h3>
+                    <p>Organized by IIM Trichy</p>
+                </div>
+            </article>
+
+            <article class="achievement-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgDlQb2WzmsLhxL3KRUQt3tnAJHbHqzGZn2bf5f0CY8g&s=10"
+                    alt="BMC team at Analytica 4.0" />
+                <div class="achievement-card__content">
+                    <span></span>
+                    <h3>1st Position at Analytica 4.0</h3>
+                </div>
+            </article>
+
+            <article class="achievement-card">
+                <img src="https://media.licdn.com/dms/image/v2/D4D22AQGB1Pl1sXQI_A/feedshare-shrink_800/feedshare-shrink_800/0/1717264085620?e=2147483647&v=beta&t=E3D33U52H6wQIDWADysvHf0pDNA3y3-vA4G7DnjchGM"
+                    alt="BMC team after winning the IIT Roorkee ML competition" />
+                <div class="achievement-card__content">
+                    <span></span>
+                    <h3>1st Position at IIT Roorkee ML Competition</h3>
+                </div>
+            </article>
+        </div>
+    </section>
 
     <section class="intro" id="about" aria-label="About BMC - Business and Management Club">
         <div class="intro__text reveal">
@@ -167,58 +185,6 @@
         </div>
     </section>
 
-    <section class="work" id="work" aria-label="Selected Work">
-        <div class="work__bg">
-            <video autoplay muted loop playsinline class="work__bg-video">
-                <source src="/src/assets/video3.mp4" type="video/mp4" />
-            </video>
-        </div>
-        <div class="work__header reveal">
-            <div>
-                <p class="section-label">Insights</p>
-                <h2 class="section-title">True<br /><em>Insights</em></h2>
-            </div>
-            <div class="work__grid">
-                <article class="work-item reveal">
-                    <div class="work__number">01</div>
-                    <div class="work__info">
-                        <h3>Revenue Growth</h3>
-                        <p>
-                            Track Business revenue trends and identify
-                            growth opportunities through comprehensive
-                            data analysis.
-                        </p>
-                    </div>
-                    <div class="work__arrow" aria-hidden="true">↗</div>
-                </article>
-
-                <article class="work-item reveal">
-                    <div class="work__number">02</div>
-                    <div class="work__info">
-                        <h3>User engagement</h3>
-                        <p>
-                            Monitor customer interaction patterns and
-                            engagement metrics to optimize business
-                            strategies.
-                        </p>
-                    </div>
-                    <div class="work__arrow" aria-hidden="true">↗</div>
-                </article>
-
-                <article class="work-item reveal">
-                    <div class="work__number">03</div>
-                    <div class="work__info">
-                        <h3>Market Performance</h3>
-                        <p>
-                            Analyze market share ,ROI and conversion rates to
-                            make data- driven business decisions.
-                        </p>
-                    </div>
-                    <div class="work__arrow" aria-hidden="true">↗</div>
-                </article>
-            </div>
-        </div>
-    </section>
 
     <section id="pillars" aria-label="Our Pillars">
         <div class="pillars__header reveal">

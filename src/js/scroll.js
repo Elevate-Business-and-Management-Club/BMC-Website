@@ -1,6 +1,6 @@
 /**
  * BMC - Business and Management Club
- * Handles navigation scroll effects and smooth scrolling
+ * Handles navbar appearance and smooth scrolling between page sections.
  */
 
 export class ScrollController {
@@ -10,7 +10,7 @@ export class ScrollController {
     this.lastScrollY = 0;
 
     if (!this.navbar) {
-      console.warn('Navbar element not found');
+      console.warn('Navbar element not found. Add id="nav" to the <nav> element.');
       return;
     }
 
@@ -18,40 +18,39 @@ export class ScrollController {
   }
 
   /**
-   * Initialize scroll functionality
+   * Initialize all scrolling features.
    */
   init() {
+    this.handleScroll();
     this.bindEvents();
   }
 
   /**
-   * Bind scroll event listeners
+   * Attach scrolling and navbar-link events.
    */
   bindEvents() {
-    // Throttle scroll events for performance
     let ticking = false;
 
     window.addEventListener('scroll', () => {
       if (!ticking) {
-        requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
           this.handleScroll();
           ticking = false;
         });
+
         ticking = true;
       }
     });
 
-    // Handle smooth scroll for anchor links
     this.initSmoothScroll();
   }
 
   /**
-   * Handle scroll event
+   * Add a visual state to the navbar once the visitor has scrolled down.
    */
   handleScroll() {
     const currentScrollY = window.scrollY;
 
-    // Toggle navbar scrolled state
     if (currentScrollY > this.scrollThreshold) {
       this.navbar.classList.add('scrolled');
     } else {
@@ -62,29 +61,42 @@ export class ScrollController {
   }
 
   /**
-   * Initialize smooth scrolling for anchor links
+   * Smoothly scroll navbar and internal links to their matching section IDs.
    */
   initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', (e) => {
+      anchor.addEventListener('click', (event) => {
         const href = anchor.getAttribute('href');
 
-        // Skip if just '#'
-        if (href === '#') return;
+        // Links such as href="#" do not point to a page section.
+        if (!href || href === '#') {
+          return;
+        }
 
         const target = document.querySelector(href);
 
-        if (target) {
-          e.preventDefault();
-
-          const navHeight = this.navbar.offsetHeight;
-          const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth',
-          });
+        // Allow normal browser behavior if a matching target is unavailable.
+        if (!target) {
+          console.warn(`No section found for ${href}`);
+          return;
         }
+
+        event.preventDefault();
+
+        const navbarHeight = this.navbar.offsetHeight;
+        const targetPosition =
+          target.getBoundingClientRect().top +
+          window.scrollY -
+          navbarHeight -
+          12;
+
+        window.scrollTo({
+          top: Math.max(0, targetPosition),
+          behavior: 'smooth',
+        });
+
+        // Updates the URL hash without a sudden second jump.
+        window.history.replaceState(null, '', href);
       });
     });
   }
