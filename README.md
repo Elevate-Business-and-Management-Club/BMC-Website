@@ -1,32 +1,19 @@
-# Business and Management Club Website
+# BMC — Business and Management Club
+### IIITDM Jabalpur
 
-The Official Website of Business and Management Club
+The Official Website of the Business and Management Club (BMC), IIITDM Jabalpur.
+
+A premium cinematic website built with a modern, futuristic aesthetic inspired by premium Awwwards websites, startup landing pages, and cinematic motion design — designed as a user-friendly platform for showcasing club activities and events.
 
 ---
 
 ## About The Project
 
-This repository contains the source code for the official BMC website.
-
-The project is being developed collaboratively by club members to create user-friendly platform for managing club activities and showcasing events.
+This repository contains the source code for the official BMC website. The project is developed collaboratively by club members.
 
 ---
 
-## License
-
-This project is licensed under the MIT License.
-
-# BMC — Business and Management Club
-
-### IIITDM Jabalpur
-
-A premium cinematic website built for the **Business and Management Club (BMC)** of **IIITDM Jabalpur**.
-
-The website is designed with a modern futuristic aesthetic inspired by premium Awwwards websites, startup landing pages, and cinematic motion design.
-
----
-
-# Features
+## Features
 
 - Premium cinematic UI
 - Glassmorphism navigation bar
@@ -34,15 +21,14 @@ The website is designed with a modern futuristic aesthetic inspired by premium A
 - Dynamic image galleries
 - Upcoming Events section
 - Smooth animations and reveal effects
-- Responsive modern design
+- Fully responsive design (desktop, tablet, and mobile — including small phones)
 - Auto-loading gallery system
 - Vite-powered frontend architecture
 
 ---
 
-# Project Structure
-
-```bash
+## Project Structure
+```
 src/
 │
 ├── assets/
@@ -71,8 +57,6 @@ src/
 │
 └── index.html
 ```
-
----
 
 # Installation & Setup
 
@@ -131,42 +115,30 @@ No HTML editing is required.
 
 ---
 
-# Uploading Upcoming Events
+## Uploading Upcoming Events
 
-To add images/posters for the **Upcoming Events Section**:
+To add images/posters for the **Upcoming Events Section**, push the event images inside:
 
-Push the event images inside:
-
-```bash
 src/assets/upcomingevents
-```
 
-Supported formats:
+Supported formats: `.jpg`, `.jpeg`, `.png`, `.webp`
 
-- `.jpg`
-- `.jpeg`
-- `.png`
-- `.webp`
-
-The events section automatically updates dynamically.
-
-No manual editing required.
+The events section automatically updates dynamically. No manual editing required.
 
 ---
 
-# Responsive Design
+## Responsive Design
 
-The website is optimized for:
-
+The website is fully responsive across:
 - Desktop
 - Tablets
-- Mobile devices
+- Mobile devices (including small phones, <480px)
+
+Key breakpoints: `900px` (tablet/mobile) and `480px` (small phones).
 
 ---
 
-# Dynamic Systems
-
-The project includes:
+## Dynamic Systems
 
 - Auto-loading gallery system
 - Dynamic event image rendering
@@ -175,20 +147,25 @@ The project includes:
 
 ---
 
-# Performance Notes
+## Performance Notes
 
 For optimal performance:
-
 - Compress videos before upload
 - Optimize large images
 - Use WebP format whenever possible
 
 ---
 
-# Tech Stack
+## Tech Stack
 
 - HTML5
 - CSS3
 - JavaScript (ES Modules)
 - Vite
 - Dynamic Asset Loading using `import.meta.glob`
+
+---
+
+## License
+
+This project is licensed under the MIT License.
