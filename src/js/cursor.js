@@ -17,6 +17,12 @@ export class CustomCursor {
       return;
     }
 
+    // Skip on touch devices - there's no mouse to track,
+    // and CSS already hides/restores things via (pointer: coarse).
+    if (window.matchMedia('(pointer: coarse)').matches) {
+      return;
+    }
+
     this.init();
   }
 
