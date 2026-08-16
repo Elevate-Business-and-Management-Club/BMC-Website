@@ -13,11 +13,11 @@
 
 .work {
     background: var(--bg2);
-  position: relative;
-
-  overflow: hidden;
-
-  isolation: isolate;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    min-height: 500px; 
+    width: 100%;
 }
 
 .work__bg {
