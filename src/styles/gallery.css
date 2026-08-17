@@ -1,151 +1,418 @@
 /* ========================================
-   Gallery Section
+   Inside Investigation — Club Movements
    ======================================== */
 
-.gallery {
-  position: relative;
-
-  padding: 120px 0;
-
+.moments-showcase {
+  padding: 90px var(--container-padding) 100px;
   overflow: hidden;
-
-  width: 100%;
-
-  max-width: 100vw;
-}
-
-/* ========================================
-   Header
-   ======================================== */
-
-.gallery__header {
-  padding: 0 var(--container-padding);
-
-  margin-bottom: 60px;
-}
-
-/* ========================================
-   Gallery Track
-   ======================================== */
-
-.gallery__track {
-  display: flex;
-
-  gap: 24px;
-
-  overflow-x: auto;
-
-  overflow-y: hidden;
-
-  padding: 0 var(--container-padding) 20px;
-
-  scroll-behavior: smooth;
-
-  scrollbar-width: none;
-
-  width: 100%;
-
-  box-sizing: border-box;
-}
-
-.gallery__track::-webkit-scrollbar {
-  display: none;
-}
-
-/* ========================================
-   Gallery Item
-   ======================================== */
-
-.gallery__item {
-  position: relative;
-
-  min-width: 380px;
-
-  height: 520px;
-
-  flex-shrink: 0;
-
-  overflow: hidden;
-
-  border-radius: 24px;
-
-  background: rgba(255,255,255,0.04);
-
-  border: 1px solid rgba(255,255,255,0.06);
-
-  transition:
-    transform 0.6s ease,
-    border-color 0.4s ease;
-}
-
-/* ========================================
-   Hover
-   ======================================== */
-
-.gallery__item:hover {
-  transform:
-    translateY(-10px)
-    scale(1.02);
-
-  border-color:
-    rgba(199,255,63,0.4);
-}
-
-/* ========================================
-   Image
-   ======================================== */
-
-.gallery__item img {
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  display: block;
-
-  transition:
-    transform 1s ease,
-    filter 0.5s ease;
-
-  filter:
-    brightness(0.9)
-    contrast(1.05);
-}
-
-.gallery__item:hover img {
-  transform: scale(1.08);
-}
-
-/* ========================================
-   Overlay
-   ======================================== */
-
-.gallery__item::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
   background:
-    linear-gradient(
-      to top,
-      rgba(0,0,0,0.5),
-      rgba(0,0,0,0.05)
-    );
+    radial-gradient(circle at 50% 72%, rgba(114, 161, 55, 0.12), transparent 32%),
+    var(--bg);
+}
+
+.moments-showcase__heading {
+  max-width: 1400px;
+  margin: 0 auto 68px;
+}
+
+.moments-showcase__eyebrow {
+  margin-bottom: 20px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.moments-showcase h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(42px, 4.2vw, 64px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.moments-showcase h2 em {
+  color: var(--accent);
+}
+
+.moments-showcase__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  margin-top: 30px;
+  color: #d4d5dc;
+  font-size: 15px;
+}
+
+.moments-showcase__meta span {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--accent);
+  font-size: 21px;
+}
+
+.moments-showcase__meta b {
+  color: #d4d5dc;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.moments-showcase__meta i {
+  color: #b8bac5;
+  font-style: normal;
 }
 
 /* ========================================
-   Mobile
+   Circular Photo Carousel
+   ======================================== */
+
+.moments-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 1560px;
+  margin: 0 auto;
+}
+
+.moments-carousel__viewport {
+  width: 100%;
+  overflow: hidden;
+  padding: 14px 0;
+}
+
+.moments-carousel__track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  will-change: transform;
+}
+
+.moments-carousel__slide {
+  width: 194px;
+  min-width: 194px;
+  height: 300px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(200, 255, 87, 0.58);
+  border-radius: 20px;
+  background: var(--bg2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.45s var(--transition-smooth),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.moments-carousel__slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: brightness(0.8) saturate(0.85);
+  transition:
+    transform 0.6s var(--transition-smooth),
+    filter 0.4s ease;
+}
+
+.moments-carousel__slide:hover {
+  z-index: 2;
+  transform: translateY(-12px) scale(1.04);
+  border-color: var(--accent);
+  box-shadow: 0 16px 35px rgba(200, 255, 87, 0.22);
+}
+
+.moments-carousel__slide:hover img {
+  transform: scale(1.1);
+  filter: brightness(1) saturate(1.08);
+}
+
+.moments-carousel__button {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(200, 255, 87, 0.42);
+  border-radius: 50%;
+  background: rgba(9, 11, 20, 0.93);
+  color: var(--text);
+  font-size: 43px;
+  line-height: 0;
+  cursor: none;
+  transform: translateY(-50%);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.moments-carousel__button:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.moments-carousel__button--previous {
+  left: -30px;
+}
+
+.moments-carousel__button--next {
+  right: -30px;
+}
+
+.moments-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 25px;
+}
+
+.moments-carousel__dots button {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  background: transparent;
+  cursor: none;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.moments-carousel__dots button.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  transform: scale(1.15);
+}
+
+/* ========================================
+   Club Sessions
+   ======================================== */
+
+.club-sessions {
+  padding: 100px var(--container-padding);
+  background: var(--bg);
+}
+
+.club-sessions__heading {
+  max-width: 590px;
+  margin-bottom: 52px;
+}
+
+.club-sessions__heading > p:last-child {
+  margin-top: 18px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.club-sessions__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.club-session-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  outline: none;
+  transition:
+    transform var(--transition-medium),
+    border-color var(--transition-medium);
+}
+
+.club-session-card:hover,
+.club-session-card:focus-within {
+  transform: translateY(-10px);
+  border-color: rgba(200, 255, 87, 0.55);
+}
+
+.club-session-card__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 230px;
+  overflow: hidden;
+}
+
+.club-session-card__images img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: brightness(0.76) saturate(0.84);
+  transition:
+    transform 0.65s var(--transition-smooth),
+    filter 0.4s ease;
+}
+
+.club-session-card__images img:first-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.club-session-card:hover img,
+.club-session-card:focus-within img {
+  transform: scale(1.09);
+  filter: brightness(0.98) saturate(1);
+}
+
+.club-session-card__content {
+  padding: 28px;
+}
+
+.club-session-card__content span {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.club-session-card h3 {
+  margin: 14px 0 12px;
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.club-session-card__content p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Hover popup: session topics */
+
+.session-topics {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 30px;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 11, 20, 0.88) 0%,
+    rgba(9, 11, 20, 0.98) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s var(--transition-smooth);
+}
+
+.club-session-card:hover .session-topics,
+.club-session-card:focus-within .session-topics {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.session-topics__label {
+  margin-bottom: 15px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.session-topics ul {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+
+.session-topics li {
+  color: var(--text);
+  font-size: 15px;
+}
+
+.session-topics li::before {
+  margin-right: 10px;
+  color: var(--accent);
+  content: "✦";
+}
+
+/* ========================================
+   Responsive
    ======================================== */
 
 @media (max-width: 900px) {
-
-  .gallery__item {
-    min-width: 280px;
-
-    height: 380px;
+  .moments-showcase__heading {
+    margin-bottom: 42px;
   }
 
+  .moments-carousel__slide {
+    width: 180px;
+    min-width: 180px;
+    height: 280px;
+  }
+
+  .club-sessions__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .club-session-card__images {
+    height: 270px;
+  }
+
+  .session-topics {
+    position: static;
+    display: block;
+    padding: 0 28px 28px;
+    background: transparent;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .session-topics__label {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  .moments-showcase,
+  .club-sessions {
+    padding: 72px var(--container-padding);
+  }
+
+  .moments-showcase__meta {
+    gap: 10px 16px;
+  }
+
+  .moments-showcase__meta i {
+    display: none;
+  }
+
+  .moments-carousel__slide {
+    width: 160px;
+    min-width: 160px;
+    height: 240px;
+  }
+
+  .moments-carousel__button {
+    width: 44px;
+    height: 44px;
+    font-size: 34px;
+  }
+
+  .moments-carousel__button--previous {
+    left: -12px;
+  }
+
+  .moments-carousel__button--next {
+    right: -12px;
+  }
+
+  .club-session-card__images {
+    height: 190px;
+  }
 }

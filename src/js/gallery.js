@@ -1,68 +1,134 @@
 /**
- * Gallery Module - Auto-loads images from src/assets/photos/
- * Handles dynamic image loading using Vite's import.meta.glob
+ * Inside Investigation continuous circular photo carousel.
+ * Add more .moments-carousel__slide elements in index.html anytime.
  */
 
-const Gallery = (() => {
-  // Initialize gallery when DOM is ready
-  const init = () => {
-    const galleryTrack = document.getElementById("gallery-track");
-    
-    if (!galleryTrack) {
-      console.warn("Gallery track element not found");
-      return;
-    }
+const carousel = document.getElementById("moments-carousel");
 
-    // Use import.meta.glob with relative path pattern
-    // The path is relative to the project root (where vite.config.js is)
-    const images = import.meta.glob(
-      "../assets/photos/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}",
-      { 
-        eager: true,
-        import: 'default'
-      }
-    );
+if (carousel) {
+  const track = carousel.querySelector(".moments-carousel__track");
+  const previousButton = carousel.querySelector(".moments-carousel__button--previous");
+  const nextButton = carousel.querySelector(".moments-carousel__button--next");
+  const dotsContainer = document.querySelector(".moments-carousel__dots");
 
-    // Get array of image URLs
-    const imageUrls = Object.values(images);
+  // Save the original event photos.
+  const originalSlides = Array.from(
+    track.querySelectorAll(".moments-carousel__slide")
+  );
 
-    // Safety check: only proceed if images exist
-    if (imageUrls.length === 0) {
-      console.info("No images found in src/assets/photos/");
-      return;
-    }
+  // Duplicate them once so the carousel can loop forever.
+  originalSlides.forEach((slide) => {
+    const duplicate = slide.cloneNode(true);
+    duplicate.setAttribute("aria-hidden", "true");
+    track.appendChild(duplicate);
+  });
 
-    // Clear any existing content first
-    galleryTrack.innerHTML = '';
+  let position = 0;
+  let speed = 0.35;
+  let isPaused = false;
+  let animationFrame;
+  let groupWidth = 0;
+  let dots = [];
 
-    // Create gallery items for each image
-    imageUrls.forEach((imageUrl) => {
-      if (!imageUrl) return; // Skip invalid entries
+  const calculateDimensions = () => {
+    groupWidth = track.scrollWidth / 2;
+  };
 
-      const item = document.createElement("div");
-      item.classList.add("gallery__item");
+  const createDots = () => {
+    dotsContainer.innerHTML = "";
 
-      const img = document.createElement("img");
-      img.src = imageUrl;
-      img.loading = "lazy"; // Improve performance
-      img.alt = "Gallery image";
+    originalSlides.forEach((_, index) => {
+      const dot = document.createElement("button");
 
-      item.appendChild(img);
-      galleryTrack.appendChild(item);
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Show photo ${index + 1}`);
+
+      dot.addEventListener("click", () => {
+        const targetSlide = originalSlides[index];
+        position = targetSlide.offsetLeft;
+        updateCarousel();
+      });
+
+      dotsContainer.appendChild(dot);
     });
 
-    console.log(`Gallery loaded with ${imageUrls.length} images`);
+    dots = Array.from(dotsContainer.querySelectorAll("button"));
   };
 
-  // Public API
-  return {
-    init
-  };
-})();
+  const updateDots = () => {
+    const currentSlideIndex =
+      originalSlides.reduce((closestIndex, slide, index) => {
+        const currentDistance = Math.abs(slide.offsetLeft - position);
+        const closestDistance = Math.abs(
+          originalSlides[closestIndex].offsetLeft - position
+        );
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', Gallery.init);
-} else {
-  Gallery.init();
+        return currentDistance < closestDistance ? index : closestIndex;
+      }, 0);
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("is-active", index === currentSlideIndex);
+    });
+  };
+
+  const updateCarousel = () => {
+    if (groupWidth > 0) {
+      position = ((position % groupWidth) + groupWidth) % groupWidth;
+    }
+
+    track.style.transform = `translate3d(-${position}px, 0, 0)`;
+    updateDots();
+  };
+
+  const animate = () => {
+    if (!isPaused) {
+      position += speed;
+
+      if (position >= groupWidth) {
+        position = 0;
+      }
+
+      updateCarousel();
+    }
+
+    animationFrame = window.requestAnimationFrame(animate);
+  };
+
+  // Right arrow moves photos left. Left arrow moves photos right.
+  nextButton.addEventListener("click", () => {
+    position += 260;
+    updateCarousel();
+  });
+
+  previousButton.addEventListener("click", () => {
+    position -= 260;
+    updateCarousel();
+  });
+
+  carousel.addEventListener("mouseenter", () => {
+    isPaused = true;
+  });
+
+  carousel.addEventListener("mouseleave", () => {
+    isPaused = false;
+  });
+
+  window.addEventListener("resize", () => {
+    calculateDimensions();
+    updateCarousel();
+  });
+
+  window.addEventListener("load", () => {
+    calculateDimensions();
+    updateCarousel();
+  });
+
+  createDots();
+  calculateDimensions();
+  updateCarousel();
+  animationFrame = window.requestAnimationFrame(animate);
+
+  window.addEventListener("beforeunload", () => {
+    window.cancelAnimationFrame(animationFrame);
+  });
 }
