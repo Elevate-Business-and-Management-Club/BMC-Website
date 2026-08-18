@@ -6,8 +6,9 @@
 import { CustomCursor } from './cursor.js';
 import { ScrollController } from './scroll.js';
 import { RevealAnimation } from './reveal.js';
-import "./gallery.js";
-import "./upcomingevents.js";
+import { clubMembers } from './member.js';
+//import "./gallery.js";
+//import "./upcomingevents.js";
 
 /**
  * Main Application Class
@@ -119,10 +120,122 @@ class App {
     this.isInitialized = false;
   }
 }
+function renderTeam() {
+    const teamContainer = document.getElementById('team-container');
 
-// Initialize application
+    if (!teamContainer) {
+        console.error('team-container not found');
+        return;
+    }
+
+    const batches = [...new Set(clubMembers.map(member => member.batch))];
+
+    let html = `
+        <div class="batches-wrapper">
+    `;
+
+    batches.forEach(batch => {
+
+        const batchMembers = clubMembers.filter(
+            member => member.batch === batch
+        );
+
+        const leadership = batchMembers.filter(
+            member =>
+                member.role === 'Coordinator' ||
+                member.role === 'Co-Coordinator'
+        );
+
+        const regularMembers = batchMembers.filter(
+            member =>
+                member.role !== 'Coordinator' &&
+                member.role !== 'Co-Coordinator'
+        );
+
+        html += `
+            <div class="batch-column">
+                <h2 class="batch-heading">BATCH ${batch}</h2>
+        `;
+
+        // ONLY BATCH 2024 gets Coordinator / Co-Coordinator
+        if (batch === "2024" && leadership.length > 0) {
+
+            html += `
+                <div class="leadership-container">
+            `;
+
+            leadership.forEach(member => {
+                html += `
+                    <div class="leadership-card">
+                        <span class="leadership-role">
+                            ${member.role}
+                        </span>
+
+                        <h3>${member.name}</h3>
+
+                        <p>${member.sector}</p>
+                    </div>
+                `;
+            });
+
+            html += `
+                </div>
+            `;
+        }
+
+        // Show sectors for BOTH batches
+        const sectors = [
+            ...new Set(
+                regularMembers.map(member => member.sector)
+            )
+        ];
+
+        sectors.forEach(sector => {
+
+            const sectorMembers = regularMembers.filter(
+                member => member.sector === sector
+            );
+
+            html += `
+                <div class="sector-group">
+
+                    <h3 class="sector-heading">
+                        ${sector}
+                    </h3>
+
+                    <div class="members-list">
+            `;
+
+            sectorMembers.forEach(member => {
+
+                html += `
+                    <div class="member-item">
+                        <span class="member-name">
+                            ${member.name}
+                        </span>
+                    </div>
+                `;
+
+            });
+
+            html += `
+                    </div>
+                </div>
+            `;
+        });
+
+        html += `
+            </div>
+        `;
+    });
+
+    html += `
+        </div>
+    `;
+
+    teamContainer.innerHTML = html;
+}
 const app = new App();
 app.init();
 
-// Export for potential external use
-export { app };
+renderTeam();

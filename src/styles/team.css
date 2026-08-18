@@ -1,0 +1,136 @@
+.team {
+    position: relative;
+    padding: 80px 20px;
+    background: var(--bg2, #121212);
+    text-align: center;
+}
+
+.team__grid {
+    display: grid;
+    /* Fits more items per row since cards are strictly text-based now */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px;
+    margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team__card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 22px 15px; /* Tighter padding for a sleeker profile */
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.team__card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.team__name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #ffffff;
+}
+
+.team__role {
+    font-size: 0.8rem;
+    color: #a3a3a3;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 2rem 1rem;
+}
+
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+/* Side-by-Side Container */
+.batches-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.batch-column {
+  flex: 1;
+  min-width: 300px;
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #334155;
+}
+
+.batch-heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #38bdf8;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.sector-group {
+  margin-bottom: 2rem;
+}
+
+.sector-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #94a3b8;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.member-role {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  margin-bottom: 0.3rem;
+}
+
+.member-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff !important; /* Forces visible text */
+}
+
+@media (max-width: 768px) {
+  .batches-wrapper {
+    flex-direction: column;
+  }
+}
