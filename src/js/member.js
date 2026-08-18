@@ -1,10 +1,8 @@
 const clubMembers = [
-  // ==========================================
-  // BATCH 2024
-  // ==========================================
-  { name: "Nitin Pandey", role: "Coordinator", sector: "Trading",position: "WC Member", batch: "2024" },
-  { name: "Samyak Gajghate", role: "Member", sector: "Trading",position: "WC Member", batch: "2024" },
-  { name: "Rahul Choudhary", role: "Member", sector: "Trading",position: "WC Member", batch: "2024" },
+  
+  { name: "Nitin Pandey", role: "Coordinator", sector: "Trading",position: "WC Member", batch: "2023" },
+  { name: "Samyak Gajghate", role: "Member", sector: "Trading",position: "WC Member", batch: "2023" },
+  { name: "Rahul Choudhary", role: "Member", sector: "Trading",position: "WC Member", batch: "2023" },
   { name: "Aaditya Poddar", role: "Member", sector: "Trading",position: "WC Member", batch: "2024" },
   { name: "Aarav Jain", role: "Member", sector: "Trading",position: "WC Member", batch: "2024" },
   { name: "Kundal Jaimin", role: "Member", sector: "Trading",position: "WC Member", batch: "2024" },
@@ -19,7 +17,7 @@ const clubMembers = [
 
   { name: "Mittapally Vishai Sai", role: "Member", sector: "PR and Social Media",position: "WC Member", batch: "2024" },
 
-  { name: "Om Gupta", role: "Member", sector: "General",position: "WC Member", batch: "2024" },
+  { name: "Om Gupta", role: "Member", sector: "General",position: "WC Member", batch: "2023" },
   { name: "Jagriti Dwivedi", role: "Member", sector: "General",position: "WC Member", batch: "2024" },
   { name: "Aasmitha", role: "Member", sector: "General",position: "WC Member", batch: "2024" },
   { name: "Somavarapu Vedha sree", role: "Member", sector: "General",position: "WC Member", batch: "2024" },
